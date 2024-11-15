@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Numbers</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main id="main">
+        <div>
+            <h1 class="title">Number Guessing Game</h1>
+            <h2 id="winner1"></h2>
+            <h2 id="winner"></h2>
+            <h1 class="playerName">Player-1</h1>
+            <img src="./images/congratulation.gif" alt="congratulationImage" id="congratulation"><br>
+            <h3 id="chance">Chance remaining: <span id="chanceCount"></span></h3>
+
+            <input type="password" name="Numbers" id="playerInput1" placeholder="1Please Enter Number (1-10)">
+            <button id="playerInputBtn1">1Start</button><br>
+            
+            <input type="text" name="Numbers" id="playerInput2" placeholder="2Please Enter Guessing Number (1-10)">
+            <button id="playerInputBtn2">2Guess</button>
+            
+            <input type="text" name="Numbers" id="playerInput3" placeholder="3Please Enter Guessing Number (1-10)">
+            <button id="playerInputBtn3">3Guess</button>
+            
+            <input type="text" name="Numbers" id="playerInput4" placeholder="4Please Enter Guessing Number (1-10)">
+            <button id="playerInputBtn4">4Guess</button>
+            <span id="errorMessage"></span>
+        </div>
+    </main>
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

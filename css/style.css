@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+}
+#playerInput1,
+#playerInput2,
+#playerInput3,
+#playerInput4{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+}
+
+#playerInput2,
+#playerInput3,
+#playerInput4{
+    width: 350px;
+}
+#playerInput2::placeholder,
+#playerInput3::placeholder,
+#playerInput4::placeholder{
+    font-size: 18px;
+}
+#playerInputBtn1,
+#playerInputBtn2,
+#playerInputBtn3,
+#playerInputBtn4{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#playerInput2,
+#playerInputBtn2,
+#playerInput3,
+#playerInputBtn3,
+#playerInput4,
+#playerInputBtn4{
+    display: none;
+}
+.title{
+    font-size: 32px;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+#errorMessage{
+    display: inline-block;
+    color: red;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+#chance{
+    display: none;
+}
+#winner,
+#winner1{
+    font-size: 50px;
+    font-weight: 700;
+    color: green;
+    margin-bottom: 10px;
+}
+#congratulation{
+    width: 400px;
+    height: auto;
+    display: none;
+}
+.playerName{
+    text-align: center;
+}
