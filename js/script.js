@@ -79,7 +79,7 @@ playerInputBtn2.addEventListener("click",(event)=>{
                 count = 5;
                 chanceCount.innerHTML = count;
                 playerName.innerHTML = `Player-3`
-                finalResult.push("Player-2 is Looser")
+                finalResult.push("Player-2 is Loser")
                 console.log(count);
                 console.log(finalResult);
             }
@@ -124,7 +124,7 @@ playerInputBtn3.addEventListener("click",(event)=>{
                 count = 5;
                 chanceCount.innerHTML = count;
                 playerName.innerHTML = `Player-4`
-                finalResult.push("Player-3 is Looser")
+                finalResult.push("Player-3 is Loser")
                 console.log(count);
                 console.log(finalResult);
             }
@@ -172,7 +172,7 @@ playerInputBtn4.addEventListener("click",(event)=>{
                 // chanceCount.innerHTML = count;
                 count = 0;
                 playerName.style.display = "none"
-                finalResult.push("Player-4 is Looser")
+                finalResult.push("Player-4 is Loser")
                 resultPublish()
                 console.log(count);
                 console.log(finalResult);
@@ -198,447 +198,30 @@ let resultPublish = ()=>{
         // console.log(final Result[1])
 
     if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
-        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against All Player`;
-        // winner1.innerHTML += "Player-1 is Looser against Player-2"
+        winner1.innerHTML += `Player-1 is <span class="loserData">Loser</span> against All Player`;
+        // winner1.innerHTML += "Player-1 is Loser against Player-2"
     } else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
         winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against All Player`;
     }
     else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
-        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-2, <span class="winnerData">Winner</span> against Player-3 & Player-4`;
+        winner1.innerHTML += `Player-1 is <span class="loserData">Loser</span> against Player-2, <span class="winnerData">Winner</span> against Player-3 & Player-4`;
     }
     else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
-        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-2, <span class="looserData">Looser</span> against Player-3 & Player-4`;
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-2, <span class="loserData">Loser</span> against Player-3 & Player-4`;
     }
     
     else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
-        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-3, <span class="winnerData">Winner</span> against Player-2 & Player-4`;
+        winner1.innerHTML += `Player-1 is <span class="loserData">Loser</span> against Player-3, <span class="winnerData">Winner</span> against Player-2 & Player-4`;
     }
     else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
-        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-3, <span class="looserData">Looser</span> against Player-2 & Player-4`;
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-3, <span class="loserData">Loser</span> against Player-2 & Player-4`;
     }
     else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
-        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-4, <span class="winnerData">Winner</span> against Player-2 & Player-3`;
+        winner1.innerHTML += `Player-1 is <span class="loserData">Loser</span> against Player-4, <span class="winnerData">Winner</span> against Player-2 & Player-3`;
     }
     else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
-        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-4, <span class="looserData">Looser</span> against Player-2 & Player-3`;
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-4, <span class="loserData">Loser</span> against Player-2 & Player-3`;
     }
     
     congratulation.style.display = "block";
 }
-
-
-
-// playerInputBtn2.addEventListener("click",(event)=>{
-//     if(Boolean(Number(playerInput2.value))){
-//         if((Number(playerInput2.value)) > 0 && (Number(playerInput2.value)) < 10){
-//             playerTwoInputValue.push(playerInput2.value)
-//             errorMessage.style.display = "none"
-//             errorMessage.innerHTML = "";
-//             playerInput2.value = "";
-//             console.log(playerTwoInputValue)
-//             chanceCount.innerHTML = count - playerTwoInputValue.length
-//             if(playerTwoInputValue.length == count){
-//                 if(playerTwoInputValue[0] == playerOneInputValue || playerTwoInputValue[1] == playerOneInputValue || playerTwoInputValue[2] == playerOneInputValue || playerTwoInputValue[3] == playerOneInputValue || playerTwoInputValue[4] == playerOneInputValue){
-//                     winner.innerHTML = "Player-2 is Winner"
-//                     playerInput2.style.display = "none"
-//                     playerInputBtn2.style.display = "none"
-//                     chance.style.display = "none";
-//                     congratulation.style.display = "block";
-//                     playerName.innerHTML = `Player-3`
-//                 }else{
-//                     playerInput2.style.display = "none"
-//                     playerInputBtn2.style.display = "none"
-//                     winner.innerHTML = "Player-1 is Winner"
-//                     chance.style.display = "none";
-//                     congratulation.style.display = "block";
-//                 }
-//             }
-//         }else{
-//             errorMessage.style.display = "block"
-//             errorMessage.innerHTML = "Please Enter a Number between 1-10"
-//         }        
-//     }else{
-//         errorMessage.style.display = "block"
-//         errorMessage.innerHTML = "Please Enter a Number, characters & zero are not allowed."
-//     } 
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const playerInput1 = document.querySelector("#playerInput1");
-// const playerInputBtn1 = document.querySelector("#playerInputBtn1");
-// const errorMessage = document.querySelector("#errorMessage");
-
-// const playerInput2 = document.querySelector("#playerInput2");
-// const playerInputBtn2 = document.querySelector("#playerInputBtn2");
-// const winner = document.querySelector("#winner");
-// let chance = document.querySelector("#chance");
-// let chanceCount = document.querySelector("#chanceCount");
-// const congratulation = document.querySelector("#congratulation");
-
-// let guessingNumber;
-// let optionNumber = []
-// let count = 5;
-
-// playerInputBtn1.addEventListener("click",(event)=>{
-//     if(Boolean(Number(playerInput1.value)) && Number(playerInput1.value) >=1 && Number(playerInput1.value) <= 10 ){
-//         guessingNumber = Number(playerInput1.value)
-//         // displayControl(event.target)
-//         playerInput1.style.display = "none";
-//         playerInputBtn1.style.display = "none";
-//         errorMessage.style.display = "none";
-//         playerInput2.style.display = "inline-block";
-//         playerInputBtn2.style.display = "inline-block";
-//         chance.style.display = "inline-block";
-//         chanceCount.innerHTML = count;
-//         // console.log()
-//     }else{
-//         errorMessage.innerHTML = "Please Enter a Number between 1-10, characters & zero are not allowed."
-//     }    
-//     console.log(guessingNumber);    
-// })
-// playerInputBtn2.addEventListener("click",(event)=>{
-//     if(Boolean(Number(playerInput2.value))){
-//         if((Number(playerInput2.value)) > 0 && (Number(playerInput2.value)) < 10){
-//             optionNumber.push(playerInput2.value)
-//             errorMessage.style.display = "none"
-//             errorMessage.innerHTML = "";
-//             playerInput2.value = "";
-//             console.log(optionNumber)
-//             chanceCount.innerHTML = count - optionNumber.length
-//             if(optionNumber.length == count){
-//                 if(optionNumber[0] == guessingNumber || optionNumber[1] == guessingNumber || optionNumber[2] == guessingNumber || optionNumber[3] == guessingNumber || optionNumber[4] == guessingNumber){
-//                     winner.innerHTML = "Player-2 is Winner"
-//                     playerInput2.style.display = "none"
-//                     playerInputBtn2.style.display = "none"
-//                     chance.style.display = "none";
-//                     congratulation.style.display = "block";
-//                 }else{
-//                     playerInput2.style.display = "none"
-//                     playerInputBtn2.style.display = "none"
-//                     winner.innerHTML = "Player-1 is Winner"
-//                     chance.style.display = "none";
-//                     congratulation.style.display = "block";
-//                 }
-//             }
-//         }else{
-//             errorMessage.style.display = "block"
-//             errorMessage.innerHTML = "Please Enter a Number between 1-10"
-//         }        
-//     }else{
-//         errorMessage.style.display = "block"
-//         errorMessage.innerHTML = "Please Enter a Number, characters & zero are not allowed."
-//     } 
-// })
-
