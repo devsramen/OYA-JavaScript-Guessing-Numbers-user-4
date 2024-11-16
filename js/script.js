@@ -50,13 +50,14 @@ playerInputBtn1.addEventListener("click",(event)=>{
 playerInputBtn2.addEventListener("click",(event)=>{
     if(Boolean(Number(playerInput2.value))){
         if((Number(playerInput2.value)) > 0 && (Number(playerInput2.value)) <= 10){
-            playerTwoInputValue.push(playerInput2.value)
+            playerTwoInputValue.push(Number(playerInput2.value))
             errorMessage.style.display = "none"
             errorMessage.innerHTML = "";
             playerInput2.value = "";
             console.log(playerTwoInputValue)
             chanceCount.innerHTML = count - playerTwoInputValue.length
-            if( playerOneInputValue == playerTwoInputValue[0] || playerOneInputValue == playerTwoInputValue[1] || playerOneInputValue == playerTwoInputValue[2] || playerOneInputValue == playerTwoInputValue[3] || playerOneInputValue == playerTwoInputValue[4] ){
+            if( playerTwoInputValue.indexOf(playerOneInputValue) != -1 ){
+            // if( playerOneInputValue == playerTwoInputValue[0] || playerOneInputValue == playerTwoInputValue[1] || playerOneInputValue == playerTwoInputValue[2] || playerOneInputValue == playerTwoInputValue[3] || playerOneInputValue == playerTwoInputValue[4] ){
                 playerInput2.style.display = `none`;
                 playerInputBtn2.style.display = `none`;
 
@@ -95,13 +96,14 @@ playerInputBtn2.addEventListener("click",(event)=>{
 playerInputBtn3.addEventListener("click",(event)=>{
     if(Boolean(Number(playerInput3.value))){
         if((Number(playerInput3.value)) > 0 && (Number(playerInput3.value)) <= 10){
-            playerThreeInputValue.push(playerInput3.value)
+            playerThreeInputValue.push(Number(playerInput3.value))
             errorMessage.style.display = "none"
             errorMessage.innerHTML = "";
             playerInput3.value = "";
             console.log(playerThreeInputValue)
             chanceCount.innerHTML = count - playerThreeInputValue.length
-            if( playerOneInputValue == playerThreeInputValue[0] || playerOneInputValue == playerThreeInputValue[1] || playerOneInputValue == playerThreeInputValue[2] || playerOneInputValue == playerThreeInputValue[3] || playerOneInputValue == playerThreeInputValue[4] ){
+            if( playerThreeInputValue.indexOf(playerOneInputValue) != -1 ){
+            // if( playerOneInputValue == playerThreeInputValue[0] || playerOneInputValue == playerThreeInputValue[1] || playerOneInputValue == playerThreeInputValue[2] || playerOneInputValue == playerThreeInputValue[3] || playerOneInputValue == playerThreeInputValue[4] ){
                 playerInput3.style.display = `none`;
                 playerInputBtn3.style.display = `none`;
 
@@ -139,14 +141,14 @@ playerInputBtn3.addEventListener("click",(event)=>{
 playerInputBtn4.addEventListener("click",(event)=>{
     if(Boolean(Number(playerInput4.value))){
         if((Number(playerInput4.value)) > 0 && (Number(playerInput4.value)) <= 10){
-            playerFourInputValue.push(playerInput4.value)
+            playerFourInputValue.push(Number(playerInput4.value))
             errorMessage.style.display = "none"
             errorMessage.innerHTML = "";
             playerInput4.value = "";
             console.log(playerFourInputValue)
             chanceCount.innerHTML = count - playerFourInputValue.length
-            if( playerOneInputValue == playerFourInputValue[0] || playerOneInputValue == playerFourInputValue[1] || playerOneInputValue == playerFourInputValue[2] || playerOneInputValue == playerFourInputValue[3] || playerOneInputValue == playerFourInputValue[4] ){
-            // if( playerFourInputValue.indexOf(playerOneInputValue) != -1 ){
+            if( playerFourInputValue.indexOf(playerOneInputValue) != -1 ){
+                // if( playerOneInputValue == playerFourInputValue[0] || playerOneInputValue == playerFourInputValue[1] || playerOneInputValue == playerFourInputValue[2] || playerOneInputValue == playerFourInputValue[3] || playerOneInputValue == playerFourInputValue[4] ){
                 playerInput4.style.display = `none`;
                 playerInputBtn4.style.display = `none`;
 
@@ -195,12 +197,33 @@ let resultPublish = ()=>{
     }
         // console.log(final Result[1])
 
-    if( finalResult.indexOf( "Player-2 is Winner") != -1 ){
-        winner1.innerHTML += "Player-1 is Looser against Player-2"
-    }else{
-        winner1.innerHTML += "Player-1 is Winner against Player-2"
+    if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
+        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against All Player`;
+        // winner1.innerHTML += "Player-1 is Looser against Player-2"
+    } else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against All Player`;
     }
-    // congratulation.style.display = "block";
+    else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
+        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-2, <span class="winnerData">Winner</span> against Player-3 & Player-4`;
+    }
+    else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-2, <span class="looserData">Looser</span> against Player-3 & Player-4`;
+    }
+    
+    else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
+        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-3, <span class="winnerData">Winner</span> against Player-2 & Player-4`;
+    }
+    else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-3, <span class="looserData">Looser</span> against Player-2 & Player-4`;
+    }
+    else if( finalResult.indexOf( "Player-2 is Winner") == -1 && finalResult.indexOf( "Player-3 is Winner") == -1 && finalResult.indexOf( "Player-4 is Winner") != -1 ){
+        winner1.innerHTML += `Player-1 is <span class="looserData">Looser</span> against Player-4, <span class="winnerData">Winner</span> against Player-2 & Player-3`;
+    }
+    else if( finalResult.indexOf( "Player-2 is Winner") != -1 && finalResult.indexOf( "Player-3 is Winner") != -1 && finalResult.indexOf( "Player-4 is Winner") == -1 ){
+        winner1.innerHTML += `Player-1 is <span class="winnerData">Winner</span> against Player-4, <span class="looserData">Looser</span> against Player-2 & Player-3`;
+    }
+    
+    congratulation.style.display = "block";
 }
 
 
