@@ -20,6 +20,7 @@ let chance = document.querySelector("#chance");
 let chanceCount = document.querySelector("#chanceCount");
 const congratulation = document.querySelector("#congratulation");
 const playerName = document.querySelector(".playerName");
+const timer = document.querySelector("#timer");
 
 let playerOneInputValue;
 let playerTwoInputValue = []
@@ -28,6 +29,39 @@ let playerFourInputValue = []
 let finalResultPlayer1 = []
 let finalResult = []
 let count = 5;
+
+
+// timer start
+let hour = 0;
+let minute = 0;
+let second = 0;
+let milliSecond = 0;
+function timeCount(){
+    milliSecond++
+    if( milliSecond == 100 ){
+        second += 1;
+        milliSecond = 0
+    }
+    if( second == 60 ){
+        minute += 1;
+        second = 0
+    }
+    if( minute == 60 ){
+        hour += 1;
+        minute = 0
+    }
+    if( hour == 24 ){
+        hour = 0
+    }
+    timer.innerHTML = `Loaded before : ${hour} : ${minute} : ${second} : ${milliSecond}`;
+}
+console.log(timer.innerHTML);
+
+setInterval(()=>{
+    timeCount()
+},1)
+// timer end
+
 
 // TypeJS Start
 let titleContent = title.innerHTML;
