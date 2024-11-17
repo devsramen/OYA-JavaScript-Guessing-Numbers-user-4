@@ -35,13 +35,8 @@ let count = 5;
 let hour = 0;
 let minute = 0;
 let second = 0;
-let milliSecond = 0;
 function timeCount(){
-    milliSecond++
-    if( milliSecond == 100 ){
-        second += 1;
-        milliSecond = 0
-    }
+    second++
     if( second == 60 ){
         minute += 1;
         second = 0
@@ -53,13 +48,13 @@ function timeCount(){
     if( hour == 24 ){
         hour = 0
     }
-    timer.innerHTML = `Loaded before : ${hour} : ${minute} : ${second} : ${milliSecond}`;
+    timer.innerHTML = `Loaded before : ${hour} : ${minute} : ${second}`;
 }
 console.log(timer.innerHTML);
 
 setInterval(()=>{
     timeCount()
-},1)
+},1000)
 // timer end
 
 
