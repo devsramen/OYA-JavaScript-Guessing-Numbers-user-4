@@ -1,4 +1,5 @@
 "use strict"
+const main = document.querySelector("#main");
 const title = document.querySelector(".title");
 const playerInput1 = document.querySelector("#playerInput1");
 const playerInputBtn1 = document.querySelector("#playerInputBtn1");
@@ -21,6 +22,20 @@ let chanceCount = document.querySelector("#chanceCount");
 const congratulation = document.querySelector("#congratulation");
 const playerName = document.querySelector(".playerName");
 const timer = document.querySelector("#timer");
+const details = document.querySelector("#details");
+const playAgain = document.querySelector("#playAgain");
+const titleWrapper = document.querySelector(".titleWrapper");
+const titleForFinal = document.querySelector(".titleForFinal");
+
+let inputArrayPlayer1 = document.querySelector("#inputArrayPlayer1")
+let inputArrayPlayer2 = document.querySelector("#inputArrayPlayer2")
+let inputArrayPlayer3 = document.querySelector("#inputArrayPlayer3")
+let inputArrayPlayer4 = document.querySelector("#inputArrayPlayer4")
+
+let inputArrayPlayerValue1 = document.querySelector("#inputArrayPlayerValue1")
+let inputArrayPlayerValue2 = document.querySelector("#inputArrayPlayerValue2")
+let inputArrayPlayerValue3 = document.querySelector("#inputArrayPlayerValue3")
+let inputArrayPlayerValue4 = document.querySelector("#inputArrayPlayerValue4")
 
 let playerOneInputValue;
 let playerTwoInputValue = []
@@ -50,7 +65,6 @@ function timeCount(){
     }
     timer.innerHTML = `Loaded before : ${hour} : ${minute} : ${second}`;
 }
-console.log(timer.innerHTML);
 
 setInterval(()=>{
     timeCount()
@@ -71,7 +85,7 @@ function typeJS(){
         title.innerHTML = ""
         charCount = -1;
     }
-    console.log(charCount);
+    // console.log(charCount);
 }
 
 setInterval(()=>{
@@ -81,7 +95,7 @@ setInterval(()=>{
 // TypeJS End
 
 
-playerInputBtn1.addEventListener("click",(event)=>{
+playerInputBtn1.addEventListener("click",()=>{
     if(Boolean(Number(playerInput1.value)) && Number(playerInput1.value) >=1 && Number(playerInput1.value) <= 10 ){
         playerOneInputValue = Number(playerInput1.value)
         playerInput1.style.display = "none";
@@ -203,6 +217,7 @@ playerInputBtn4.addEventListener("click",(event)=>{
                 playerInput4.style.display = "none";
                 playerInputBtn4.style.display = "none";
                 chance.style.display = "none";
+                details.style.display = "inline-block";
                 count = 0;
                 playerName.style.display = "none"
                 finalResult.push("Player-4 is Winner")
@@ -216,6 +231,7 @@ playerInputBtn4.addEventListener("click",(event)=>{
                 playerInput4.style.display = "none";
                 playerInputBtn4.style.display = "none";
                 chance.style.display = "none";
+                details.style.display = "inline-block";
                 count = 0;
                 playerName.style.display = "none"
                 finalResult.push("Player-4 is Loser")
@@ -264,3 +280,33 @@ let resultPublish = ()=>{
     }    
     congratulation.style.display = "block";
 }
+
+
+
+
+details.addEventListener("click",(event)=>{
+
+    inputArrayPlayer1.style.display = "block";
+    inputArrayPlayer2.style.display = "block";
+    inputArrayPlayer3.style.display = "block";
+    inputArrayPlayer4.style.display = "block";
+    
+    main.style.minHeight = "370px";
+    main.style.display = "inherit";
+    main.style.textAlign = "center";
+    winner1.style.display = "none";
+    winner.style.display = "none";
+    congratulation.style.display = "none";
+    titleWrapper.style.display = "none";
+    event.target.style.display = "none";
+    playAgain.style.display = "inline-block";
+    titleForFinal.style.display = "inline-block";
+    
+    inputArrayPlayerValue1.innerHTML += playerOneInputValue;
+    // playerTwoInputValue.map((item)=>{
+    //     inputArrayPlayerValue2.innerHTML += `    "${item}"`;
+    // })
+        inputArrayPlayerValue2.innerHTML = playerTwoInputValue;
+        inputArrayPlayerValue3.innerHTML = playerThreeInputValue;
+        inputArrayPlayerValue4.innerHTML = playerFourInputValue;
+})
